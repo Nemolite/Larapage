@@ -10,7 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get(
+	'/test/{vary}/{atas}/{tot?}', function($vary,$atas,$yy= "ничего нет"){
+		echo $vary;
+		echo "<br />";
+		echo $atas;
+		echo "<br />";
+		echo $yy;
+	}
+);
 
 Route::get('/cont','FirstController@display_user');
 
@@ -51,6 +59,8 @@ Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
 Route::get('/welcome', ['as'=>'welcome',function () {
     return view('welcome');
 }]);
+
+
 
 /*
 Route::get('/article/{id}', ['as'=>'article',function ($id) {
