@@ -53,7 +53,8 @@ Route::match(['get','post'],'/contactform',['as'=>'contactform','uses'=>'ContCon
 
 Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
 
-
+Route::get('/rtest','testController@dis');
+Route::get('/atat/{aaa}','sotController@less');
 
 
 Route::get('/welcome', ['as'=>'welcome',function () {
