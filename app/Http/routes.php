@@ -61,7 +61,7 @@ Route::get('/welcome', ['as'=>'welcome',function () {
     return view('welcome');
 }]);
 
-
+Route::resource('/listb','Log\rController');
 
 /*
 Route::get('/article/{id}', ['as'=>'article',function ($id) {

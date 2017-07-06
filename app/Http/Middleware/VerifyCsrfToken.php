@@ -14,6 +14,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
 		'/pages*',
-		'/contactform'
+		'/contactform',
+		'/listb'
     ];
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="test_bl">
-	<form action="/pages" method="post">
+	<form action="/listb" method="post">
 		<p>Name</p><br />
 		<input type="text" name="name"><br /><br />
 		<!-- <input type="hidden" name="_method" value="PUT"> -->
