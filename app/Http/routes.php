@@ -47,6 +47,8 @@ Route::post('/pages',function(){
 
 Route::get('/arts',['as'=>'arts','uses'=>'HomeController@index']);
 
+Route::get('/home', 'testController@basaviwe');
+
 Route::get('/about',['as'=>'about','uses'=>'AboutController@show']);
 
 Route::match(['get','post'],'/contactform',['as'=>'contactform','uses'=>'ContController@showform']);
