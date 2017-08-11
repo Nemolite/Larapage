@@ -44,6 +44,8 @@ Route::post('/pages',function(){
 	echo "/pages";
 });
 */
+Route::get('/basa','BasaController@showbasa');
+Route::get('/basa2','BasaController@showdb');
 
 Route::get('/arts',['as'=>'arts','uses'=>'HomeController@index']);
 
