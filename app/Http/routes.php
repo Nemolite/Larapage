@@ -67,6 +67,8 @@ Route::get('/welcome', ['as'=>'welcome',function () {
 
 Route::resource('/listb','Log\rController');
 
+Route::match(['get','post'],'/vald',['uses'=>'Admin\ContactController@show','as'=>'vald']);
+
 /*
 Route::get('/article/{id}', ['as'=>'article',function ($id) {
     echo $id;

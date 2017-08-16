@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         //
 		'/pages*',
 		'/contactform',
-		'/listb'
+		'/listb',
+        'vald'
     ];
 }
