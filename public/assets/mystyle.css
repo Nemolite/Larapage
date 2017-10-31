@@ -1,0 +1,101 @@
+
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.header {
+    text-align: center;
+}
+
+.main {
+    width: 65%;
+    height: 100%;
+    border-top: 3px solid indianred;
+    margin: 20px auto;
+   
+}
+
+.left,
+.right {
+    width: 50%;
+    //height: 100%;
+    float: left;
+    border-bottom: 1px solid green;
+    border-left:  1px solid green;
+    border-right: 1px solid green;
+
+}
+
+.stroke {
+    width: 40%;
+    height: 60px;
+    margin: 0 auto;
+
+
+}
+.formstyl {
+    padding-left: 25px;
+    
+}
+input.inputstyl {
+    width: 300px;
+}
+
+/* The styles of registration form*/
+
+.form_reg {
+    width: 24%;
+    height: 300px;
+    margin: 0 auto;
+}
+
+/* index */
+
+.rules {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.game {
+    text-align: center;
+    height: 40%;
+}
+

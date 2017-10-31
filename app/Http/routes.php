@@ -10,16 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get(
-	'/test/{vary}/{atas}/{tot?}', function($vary,$atas,$yy= "ничего нет"){
-		echo $vary;
-		echo "<br />";
-		echo $atas;
-		echo "<br />";
-		echo $yy;
-	}
-);
+Route::get('/', ['as'=>'login','uses'=>'PageController@index']);
 
+Route::get('/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
+
+Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']);
+
+
+/*
 Route::get('/cont','FirstController@display_user');
 
 Route::get('/adm','FirstController@display_admin');
@@ -33,7 +31,7 @@ Route::get('/method/{newid}','FirstController@display_method'); //парамтр
 Route::get('/second', 'SecondController@second_show');
 
 Route::get('/three/{param}', ['uses'=>'dir\ThreeController@dir_show','as'=>'three','middleware'=>'mymiddle']);
-
+*/
 // list page
 //Route::resource('/pages','Admin\CoreResoyrse');
 
@@ -44,30 +42,30 @@ Route::post('/pages',function(){
 	echo "/pages";
 });
 */
-Route::get('/basa','BasaController@showbasa');
-Route::get('/basa2','BasaController@showdb');
-
-Route::get('/arts',['as'=>'arts','uses'=>'HomeController@index']);
-
-Route::get('/home', 'testController@basaviwe');
-
-Route::get('/about',['as'=>'about','uses'=>'AboutController@show']);
-
-Route::match(['get','post'],'/contactform',['as'=>'contactform','uses'=>'ContController@showform']);
-
-Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
-
-Route::get('/rtest','testController@dis');
-Route::get('/atat/{aaa}','sotController@less');
-
-
-Route::get('/welcome', ['as'=>'welcome',function () {
-    return view('welcome');
-}]);
-
-Route::resource('/listb','Log\rController');
-
-Route::match(['get','post'],'/vald',['uses'=>'Admin\ContactController@show','as'=>'vald']);
+//Route::get('/basa','BasaController@showbasa');
+//Route::get('/basa2','BasaController@showdb');
+//
+//Route::get('/arts',['as'=>'arts','uses'=>'HomeController@index']);
+//
+//Route::get('/home', 'testController@basaviwe');
+//
+//Route::get('/about',['as'=>'about','uses'=>'AboutController@show']);
+//
+//Route::match(['get','post'],'/contactform',['as'=>'contactform','uses'=>'ContController@showform']);
+//
+//Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
+//
+//Route::get('/rtest','testController@dis');
+//Route::get('/atat/{aaa}','sotController@less');
+//
+//
+//Route::get('/welcome', ['as'=>'welcome',function () {
+//    return view('welcome');
+//}]);
+//
+//Route::resource('/listb','Log\rController');
+//
+//Route::match(['get','post'],'/vald',['uses'=>'Admin\ContactController@show','as'=>'vald']);
 
 /*
 Route::get('/article/{id}', ['as'=>'article',function ($id) {
