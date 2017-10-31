@@ -14,23 +14,33 @@
 <div class="header">
     <h1>Форма регистрации</h1>
 </div>
+
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="form_reg">
-    <form name="reg_form" id="reg_form" action="/regist" method="post">
+    <form name="reg_form" id="reg_form" action="{{ route('regist') }}" method="post">
 
         <fieldset class="form-group">
             <label for="exampleInputEmail">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail" name="regemail" placeholder="Email">
+            <input type="email" class="form-control" id="exampleInputEmail" name="regemail" value= "{{ old('regemail') }}" placeholder="Email">
         </fieldset>
 
         <fieldset class="form-group">
             <label for="exampleInputMobil">Mobil</label>
-            <input type="text" class="form-control" id="exampleInputMobil" name="regphone" placeholder="Mobil">
+            <input type="text" class="form-control" id="exampleInputMobil" name="regphone" value= "{{ old('regphone') }}" placeholder="Mobil">
         </fieldset>
 
 
         <fieldset class="form-group">
             <label for="exampleInputLogin">Логин</label>
-            <input type="text" class="form-control" id="exampleInputLogin" name="regname" placeholder="Login">
+            <input type="text" class="form-control" id="exampleInputLogin" name="regname" value= "{{ old('regname') }}" placeholder="Login">
         </fieldset>
         <fieldset class="form-group">
             <label for="exampleInputPassword1">Пароль</label>

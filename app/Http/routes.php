@@ -12,7 +12,8 @@
 */
 Route::get('/', ['as'=>'login','uses'=>'PageController@index']);
 
-Route::match(['get','post'],'/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
+Route::get('/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
+Route::post('/regist', ['uses'=>'PageController@registshow']);
 
 Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']);
 
