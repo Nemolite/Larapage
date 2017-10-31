@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddArtsUsersTable extends Migration
+class CreateFullusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class AddArtsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('fullusers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('user_id')->unsigned()->default(1);
-            $table->foreign('user_id')->references('id')->on('ttts');
+			$table->string('login');
+			$table->string('pass');
+			$table->integer('phone');
+            $table->string('email');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -29,6 +29,6 @@ class AddArtsUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('fullusers');
     }
 }

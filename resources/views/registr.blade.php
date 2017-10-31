@@ -15,7 +15,7 @@
     <h1>Форма регистрации</h1>
 </div>
 <div class="form_reg">
-    <form name="reg_form" id="reg_form" action="/register" method="post">
+    <form name="reg_form" id="reg_form" action="/regist" method="post">
 
         <fieldset class="form-group">
             <label for="exampleInputEmail">Email</label>
@@ -46,6 +46,7 @@
 
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
         <button type="button" class="btn btn-warning" id="Index">Нет не хочу</button>
+        {{ csrf_field()}}
     </form>
 </div>
 

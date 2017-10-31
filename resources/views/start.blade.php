@@ -24,7 +24,7 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>
         <p></p>
-        <p><a href="/register">Зарегистрироваться</a></p>
+        <p><a href="/regist">Зарегистрироваться</a></p>
     </form>
 
 </div> <!-- /container -->
