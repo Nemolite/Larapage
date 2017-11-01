@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Validator;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -33,21 +35,23 @@ class PageController extends Controller
         if($request->isMethod('post')) {
             $messages = [];
             $rules = [
-                'regname'=>'required',
-                'regphone'=>'required|integer',
-                'regemail'=>'required|email',
-                'pwd1' => 'same:pwd2'
+                'regname'=>'required|string|unique:fullusers,login',
+                'regphone'=>'required|integer|unique:fullusers,phone',
+                'regemail'=>'required|email|unique:fullusers,email',
+                'pwd1' => 'same:pwd2|min:5'
             ];
             $validator = Validator::make($request->all(),$rules,$messages);
 
-            $this->validate($request,$rules); //данные и сообщение об ошибки в сессии
+            $this->validate($request,$rules); //
 
-            if ($validator->fails()) {// если были ошибки
+            if ($validator->fails()) {// if errors
 
-                return redirect()->route('regist')->withErrors($validator)->withInput();
+                return redirect('/regist')
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
-            dump($request->all());
+           // dump($request->all());
 
             $login = $request->input('regname');
             $pass = $request->input('pwd1');
@@ -56,6 +60,7 @@ class PageController extends Controller
 
             DB::insert("INSERT INTO `fullusers` (`login`,`pass`,`phone`,`email`) 
                                                VALUES (?,?,?,?)",[$login,$pass,$phone,$email]);
+            return redirect('/');
 
 
         }
@@ -84,5 +89,17 @@ class PageController extends Controller
 
          dump($users);
         // return view('panel');
+    }
+
+    public function authuser(Request $request) //аутиндификация
+    {
+        $login = $request->input('regname');
+        $pass = $request->input('pwd1');
+
+        if (Auth::attempt(['login' => $login, 'pass' => $pass])) {
+            // Аутентификация успешна
+           echo "успешно";
+            //return redirect()->intended('admin');
+        }
     }
 }

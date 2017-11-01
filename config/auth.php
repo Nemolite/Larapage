@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'web',       // выбор охраника
+        'passwords' => 'users',//логика сброса
     ],
 
     /*
@@ -37,12 +37,12 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'session',  // сессии
             'provider' => 'users',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'token',   //токен
             'provider' => 'users',
         ],
     ],
@@ -66,8 +66,8 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+            'driver' => 'eloquent',//система моделей фреймворка
+            'model' => App\fulluser::class, //модель которая будет использовано
         ],
 
         // 'users' => [
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'passwords' => [
+    'passwords' => [  // механизм сброса пароля
         'users' => [
             'provider' => 'users',
             'email' => 'auth.emails.password',

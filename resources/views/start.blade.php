@@ -14,12 +14,26 @@
 
 <div class="container">
 
-    <form class="form-signin" role="form" method="post" action="/admin" name="form_login">
+    <form class="form-signin" role="form" method="post" action="{{ url('/') }}" name="form_login">
+        {{ csrf_field() }}
         <h3 class="form-signin-heading" style="text-align: center;">Добро пожаловать !</h3>
-        <label for="inputEmail" class="sr-only">Login</label>
-        <input type="text" name="login" id="inputEmail" class="form-control" placeholder="Ваш логин" required autofocus>
+        <label for="inputLogin" class="sr-only">Login</label>
+        <input type="text" name="login" id="inputLogin" class="form-control" placeholder="Ваш логин" required autofocus>
+
+        @if ($errors->has('login'))
+            <span class="help-block">
+                 <strong>{{ $errors->first('login') }}</strong>
+            </span>
+        @endif
+
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+
+        @if ($errors->has('pass'))
+            <span class="help-block">
+                 <strong>{{ $errors->first('pass') }}</strong>
+            </span>
+        @endif
 
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>

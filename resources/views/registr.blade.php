@@ -15,50 +15,56 @@
     <h1>Форма регистрации</h1>
 </div>
 
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 <div class="form_reg">
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form name="reg_form" id="reg_form" action="{{ route('regist') }}" method="post">
 
         <fieldset class="form-group">
-            <label for="exampleInputEmail">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail" name="regemail" value= "{{ old('regemail') }}" placeholder="Email">
+            <label for="Email">Email*</label>
+            <input type="email" class="form-control" id="Email" name="regemail" value= "{{ old('regemail') }}" placeholder="Email">
         </fieldset>
 
         <fieldset class="form-group">
-            <label for="exampleInputMobil">Mobil</label>
-            <input type="text" class="form-control" id="exampleInputMobil" name="regphone" value= "{{ old('regphone') }}" placeholder="Mobil">
+            <label for="Mobil">Mobil*</label>
+            <input type="text" class="form-control" id="Mobil" name="regphone" value= "{{ old('regphone') }}" placeholder="Mobil">
         </fieldset>
 
 
         <fieldset class="form-group">
-            <label for="exampleInputLogin">Логин</label>
-            <input type="text" class="form-control" id="exampleInputLogin" name="regname" value= "{{ old('regname') }}" placeholder="Login">
+            <label for="Login">Логин*</label>
+            <input type="text" class="form-control" id="Login" name="regname" value= "{{ old('regname') }}" placeholder="Login">
         </fieldset>
         <fieldset class="form-group">
-            <label for="exampleInputPassword1">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="pwd1"
+            <label for="Password1">Пароль</label>
+            <input type="password" class="form-control" id="Password1" name="pwd1"
                    placeholder="Пароль">
 
         </fieldset>
         <fieldset class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword2" name="pwd2"
+            <input type="password" class="form-control" id="Password2" name="pwd2"
                    placeholder="Подтвердите пароль">
             <small class="text-muted">Повторите ввод пароля</small>
         </fieldset>
 
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        <!--
         <button type="button" class="btn btn-warning" id="Index">Нет не хочу</button>
+        -->
         {{ csrf_field()}}
     </form>
 </div>
+<p></p>
+<p></p>
+<p></p>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
