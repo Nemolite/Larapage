@@ -47,12 +47,11 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Панель управления</h1>
 
-           {{ $vol }}
-
             <h2>Users</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
+
                     <tr>
                         <th>ID</th>
                         <th>Login</th>
@@ -61,14 +60,16 @@
 
                     </tr>
                     </thead>
-
+                    @foreach ($users as $user)
                     <tbody>
 
+                        <th>{{ $user["id"] }}</th>
+                        <th>{{ $user["login"] }}</th>
+                        <th>{{ $user["phone"] }}</th>
+                        <th>{{ $user["email"] }}</th>
 
                     </tbody>
-
-
-
+                    @endforeach
 
                     <tbody>
 

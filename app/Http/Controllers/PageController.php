@@ -76,20 +76,11 @@ class PageController extends Controller
      */
     public function admin()
     {
-        $users = DB::select("SELECT * FROM `fullusers`");
-        //$users = fulluser::all();
-        dump($users);
-        if (is_array($users)){
-         // echo "yes";
-            $vol = 1;
-        } else {
-            //echo "no";
-            $vol = 0;
-        }
 
+        $users = fulluser::all();
+        //dump($users);
 
-        //return view('panel',$date);
-        return view('panel')->with($vol);
+        return view('panel')->with('users', $users);
     }
 
     /**
@@ -99,7 +90,7 @@ class PageController extends Controller
     {
          $users = DB::select("SELECT * FROM `fullusers`");
 
-         dump($users);
+         //dump($users);
         // return view('panel');
     }
 
