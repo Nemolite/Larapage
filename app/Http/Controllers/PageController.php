@@ -79,13 +79,9 @@ class PageController extends Controller
     }
 
     /**
-     * Регистация через ВКонтакте
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function regvk()
-    {
-
-    }
-
     public function authuser(Request $request) //аутиндификация
     {
         $login = $request->input('login');

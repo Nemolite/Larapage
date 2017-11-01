@@ -19,7 +19,6 @@ Route::post('/admin/search', ['as'=>'search','uses'=>'PageController@search']); 
 Route::get('/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
 Route::post('/regist', ['uses'=>'PageController@registshow']);
 
-Route::get('/vk', ['as'=>'vk','uses'=>'PageController@regvk']);
 
 Route::post('ulogin', 'UloginController@login');
 
