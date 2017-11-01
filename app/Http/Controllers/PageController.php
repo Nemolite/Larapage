@@ -49,6 +49,13 @@ class PageController extends Controller
 
             dump($request->all());
 
+            $login = $request->input('regname');
+            $pass = $request->input('pwd1');
+            $phone = $request->input('regphone');
+            $email = $request->input('regemail');
+
+            DB::insert("INSERT INTO `fullusers` (`login`,`pass`,`phone`,`email`) 
+                                               VALUES (?,?,?,?)",[$login,$pass,$phone,$email]);
 
 
         }
