@@ -25,7 +25,7 @@
             <a class="nav-item nav-link" href="/">Выход</a>
         </nav>
         <form class="col-lg-3" action="{{ route('search') }}" method="post">
-             {{ csrf_field()}}
+            {{ csrf_field()}}
             <div class="input-group">
                 <input type="text" class="form-control" id="search" name="search" placeholder="Поиск...">
                 <span class="input-group-btn">
@@ -33,7 +33,7 @@
                 </span>
             </div>
         </form>
-        </div>
+    </div>
     </div>
 </nav>
 
@@ -51,7 +51,7 @@
 
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Панель управления</h1>
+            <h1 class="page-header">Результаты поиска</h1>
 
             <h2>Users</h2>
             <div class="table-responsive">
@@ -66,22 +66,20 @@
 
                     </tr>
                     </thead>
-                    @foreach ($users as $user)
-                            <tbody>
-
-                            <th>{{ $user["id"] }}</th>
-                            <th>{{ $user["login"] }}</th>
-                            <th>{{ $user["phone"] }}</th>
-                            <th>{{ $user["email"] }}</th>
-
-                            </tbody>
-                    @endforeach
 
                     <tbody>
+                    @foreach ($result as $res)
+                        <tbody>
 
+                        <th>{{ $res["id"] }}</th>
+                        <th>{{ $res["login"] }}</th>
+                        <th>{{ $res["phone"] }}</th>
+                        <th>{{ $res["email"] }}</th>
+
+                        </tbody>
 
                     </tbody>
-
+                    @endforeach
                 </table>
 
             </div>

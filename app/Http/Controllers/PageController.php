@@ -54,8 +54,6 @@ class PageController extends Controller
                     ->withInput();
             }
 
-           // dump($request->all());
-
             $login = $request->input('regname');
             $pass = $request->input('pwd1');
             $phone = $request->input('regphone');
@@ -64,7 +62,6 @@ class PageController extends Controller
             DB::insert("INSERT INTO `fullusers` (`login`,`pass`,`phone`,`email`) 
                                                VALUES (?,?,?,?)",[$login,$pass,$phone,$email]);
             return redirect('/');
-
 
         }
         return view('registr');
@@ -76,9 +73,7 @@ class PageController extends Controller
      */
     public function admin()
     {
-
         $users = fulluser::all();
-        //dump($users);
 
         return view('panel')->with('users', $users);
     }
@@ -88,10 +83,7 @@ class PageController extends Controller
      */
     public function regvk()
     {
-         $users = DB::select("SELECT * FROM `fullusers`");
 
-         //dump($users);
-        // return view('panel');
     }
 
     public function authuser(Request $request) //аутиндификация
@@ -104,10 +96,25 @@ class PageController extends Controller
             ->get();
         if (!empty($comare)) {
             // Аутентификация успешна
-            echo "yes";
-            return redirect('/admin');
-        } else {
-            echo "no";
+           return redirect('/admin');
         }
+    }
+
+    public function search(Request $request) //поиск
+    {
+
+        $search = $request->input('search');
+
+        $result = DB::table('fullusers')
+            ->where('login', 'like', '%'.$search.'%')
+            ->orWhere('phone', 'like', '%'.$search.'%')
+            ->orWhere('email', 'like', '%'.$search.'%')
+
+            ->get();
+
+       // dump($result);
+
+            return view('search')->with('result', $result);
+
     }
 }

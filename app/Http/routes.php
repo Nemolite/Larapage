@@ -14,11 +14,14 @@ Route::get('/', ['as'=>'login','uses'=>'PageController@index']);
 Route::post('/', ['as'=>'logindata','uses'=>'PageController@authuser']);
 
 Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']); //   admin panel
+Route::post('/admin/search', ['as'=>'search','uses'=>'PageController@search']); //   poisk
 
 Route::get('/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
 Route::post('/regist', ['uses'=>'PageController@registshow']);
 
 Route::get('/vk', ['as'=>'vk','uses'=>'PageController@regvk']);
+
+Route::post('ulogin', 'UloginController@login');
 
 
 //Route::auth();

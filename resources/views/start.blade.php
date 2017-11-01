@@ -39,6 +39,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>
         <p></p>
         <p><a href="/regist">Зарегистрироваться</a>&nbsp;&nbsp;&nbsp;<a href="/vk">ВКонтакте</a></p>
+        @include('social')
     </form>
 
 </div> <!-- /container -->
