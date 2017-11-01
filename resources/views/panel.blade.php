@@ -54,12 +54,18 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Login</th>
                         <th>Mobil</th>
                         <th>Email</th>
-                        <th>Action</th>
 
                     </tr>
+                    @foreach ($errors->all() as $error)
+                            <tr>
+                                    <th>{{ $error }}</th>
+                            </tr>
+                    @endforeach
+
                     </thead>
                     <tbody>
 

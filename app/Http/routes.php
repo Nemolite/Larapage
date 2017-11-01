@@ -15,6 +15,8 @@ Route::get('/', ['as'=>'login','uses'=>'PageController@index']);
 Route::get('/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
 Route::post('/regist', ['uses'=>'PageController@registshow']);
 
+Route::get('/vk', ['as'=>'vk','uses'=>'PageController@regvk']);
+
 Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']);
 
 
