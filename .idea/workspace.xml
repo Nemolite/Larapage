@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f39be6-a0d6-4b0b-ae7f-61ddcf515417" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/start.blade.php" afterPath="$PROJECT_DIR$/resources/views/start.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -394,12 +392,12 @@
       <updated>1478596201423</updated>
       <workItem from="1509443638700" duration="15535000" />
       <workItem from="1509506262638" duration="27659000" />
-      <workItem from="1509545659625" duration="9948000" />
+      <workItem from="1509545659625" duration="10485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53142000" />
+    <option name="totallyTimeSpent" value="53679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
