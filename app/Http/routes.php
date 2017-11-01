@@ -13,18 +13,21 @@
 Route::get('/', ['as'=>'login','uses'=>'PageController@index']);
 Route::post('/', ['as'=>'logindata','uses'=>'PageController@authuser']);
 
+Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']); //   admin panel
+
 Route::get('/regist', ['as'=>'regist','uses'=>'PageController@registshow']);
 Route::post('/regist', ['uses'=>'PageController@registshow']);
 
 Route::get('/vk', ['as'=>'vk','uses'=>'PageController@regvk']);
 
-Route::group(['middleware'=>'web'],function(){
 
-    Route::auth();
-
-    Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']); //   admin panel
-
-});
+//Route::auth();
+//// admin
+//Route::group(['middleware'=>['web' ,'auth']],function(){
+//
+//    Route::get('/admin', ['as'=>'admin','uses'=>'PageController@admin']); //   admin panel
+//
+//});
 
 
 

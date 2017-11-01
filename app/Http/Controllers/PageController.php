@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Validator;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Auth;
+use App\fulluser;
+use Illuminate\Support\Facades\Hash;
+
 
 
 
@@ -73,11 +76,20 @@ class PageController extends Controller
      */
     public function admin()
     {
-        //$users = DB::select("SELECT * FROM `fullusers`");
         $users = DB::select("SELECT * FROM `fullusers`");
+        //$users = fulluser::all();
         dump($users);
+        if (is_array($users)){
+         // echo "yes";
+            $vol = 1;
+        } else {
+            //echo "no";
+            $vol = 0;
+        }
 
-        return view('panel');
+
+        //return view('panel',$date);
+        return view('panel')->with($vol);
     }
 
     /**
@@ -85,7 +97,7 @@ class PageController extends Controller
      */
     public function regvk()
     {
-         $users = select("SELECT * FROM `fullusers`");
+         $users = DB::select("SELECT * FROM `fullusers`");
 
          dump($users);
         // return view('panel');
@@ -93,13 +105,18 @@ class PageController extends Controller
 
     public function authuser(Request $request) //аутиндификация
     {
-        $login = $request->input('regname');
-        $pass = $request->input('pwd1');
-
-        if (Auth::attempt(['login' => $login, 'pass' => $pass])) {
+        $login = $request->input('login');
+        $pass = $request->input('password');
+        $comare = DB::table('fullusers')
+            ->where('login', '=', $login)
+            ->where('pass', '=', $pass)
+            ->get();
+        if (!empty($comare)) {
             // Аутентификация успешна
-           echo "успешно";
-            //return redirect()->intended('admin');
+            echo "yes";
+            return redirect('/admin');
+        } else {
+            echo "no";
         }
     }
 }

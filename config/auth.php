@@ -70,10 +70,10 @@ return [
             'model' => App\fulluser::class, //модель которая будет использовано
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+//         'users' => [
+//             'driver' => 'database',
+//             'table' => 'fullusers',
+//         ],
     ],
 
     /*

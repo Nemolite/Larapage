@@ -47,7 +47,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Панель управления</h1>
 
-
+           {{ $vol }}
 
             <h2>Users</h2>
             <div class="table-responsive">
@@ -60,13 +60,16 @@
                         <th>Email</th>
 
                     </tr>
-                    @foreach ($errors->all() as $error)
-                            <tr>
-                                    <th>{{ $error }}</th>
-                            </tr>
-                    @endforeach
-
                     </thead>
+
+                    <tbody>
+
+
+                    </tbody>
+
+
+
+
                     <tbody>
 
 
