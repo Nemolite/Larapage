@@ -122,4 +122,6 @@ class PageController extends Controller
             return view('search')->with('result', $result);
 
     }
+
+
 }

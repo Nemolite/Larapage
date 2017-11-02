@@ -21,6 +21,7 @@ Route::post('/regist', ['uses'=>'PageController@registshow']);
 
 
 Route::post('ulogin', 'UloginController@login');
+Route::post('/regsoc', ['as'=>'regsoc','uses'=>'UloginController@regsoc']);
 
 
 //Route::auth();

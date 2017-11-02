@@ -9,6 +9,8 @@ use Auth;
 use Hash;
 use Illuminate\Http\Request;
 use Redirect;
+use Validator;
+use Illuminate\Support\Facades\DB;
 
 class UloginController extends Controller
 {
@@ -22,44 +24,56 @@ class UloginController extends Controller
 
         $user = json_decode($data, TRUE);
         dump($user);
-        $network = $user['network'];
+        //exit;
 
-        // Find user in DB.
         $userData = fulluser::where('email', $user['email'])->first();
 
-        // Check exist user.
         if (isset($userData->id)) {
+            return redirect()->route('admin');
+        } else {
 
-            // Check user status.
-            if ($userData->status) {
+            $network = $user['network'];
 
-                // Make login user.
-                Auth::loginUsingId($userData->id, TRUE);
-            }
-            // Wrong status.
-            else {
-                \Session::flash('flash_message_error', trans('interface.AccountNotActive'));
+            if ("vkontakte" === $network) {
+                return view('add', ['user' => $user]);
             }
 
             return redirect()->route('admin');
         }
-        // Make registration new user.
-        else {
 
-            // Create new user in DB.
-            $newUser = fulluser::create([
-                'login' => $user['nickname'],
-                'email' => $user['email'],
-                'password' => Hash::make(str_random(8)),
-                'ip' => $request->ip()
-            ]);
+    }
+    public function regsoc(Request $request) // valid and regist
+    {
+        if($request->isMethod('post')) {
+            $messages = [];
+            $rules = [
+                'regname'=>'required|string|unique:fullusers,login',
+                'regphone'=>'required|integer|unique:fullusers,phone',
+                'regemail'=>'required|email|unique:fullusers,email',
 
-            // Make login user.
-            Auth::loginUsingId($newUser->id, TRUE);
+            ];
+            $validator = Validator::make($request->all(),$rules,$messages);
 
-            \Session::flash('flash_message', trans('interface.ActivatedSuccess'));
+            $this->validate($request,$rules); //
 
-            return redirect()->route('admin');
+            if ($validator->fails()) {// if errors
+
+                return redirect('/regsoc')
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $login = $request->input('regname');
+            $pass = Hash::make(str_random(8));
+            $phone = $request->input('regphone');
+            $email = $request->input('regemail');
+
+            DB::insert("INSERT INTO `fullusers` (`login`,`pass`,`phone`,`email`) 
+                                               VALUES (?,?,?,?)",[$login,$pass,$phone,$email]);
+            return redirect('/admin');
+
         }
+        return view('regsoc');
+
     }
 }
