@@ -10,6 +10,8 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Auth;
 use App\fulluser;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 
@@ -73,9 +75,12 @@ class PageController extends Controller
      */
     public function admin()
     {
-        $users = fulluser::all();
+        //$users = fulluser::all()->paginate(10);
+        $users = DB::table('fullusers')->paginate(5);
 
-        return view('panel')->with('users', $users);
+        return view('panel', ['users' => $users]);
+
+        //return view('panel')->with('users', $users);
     }
 
     /**
@@ -101,12 +106,16 @@ class PageController extends Controller
 
         $search = $request->input('search');
 
-        $result = DB::table('fullusers')
-            ->where('login', 'like', '%'.$search.'%')
-            ->orWhere('phone', 'like', '%'.$search.'%')
-            ->orWhere('email', 'like', '%'.$search.'%')
-
-            ->get();
+       // $result = DB::table('fullusers')
+        $result = fulluser::where('login', 'like', '%'.$search.'%')
+              ->orWhere('phone', 'like', '%'.$search.'%')
+              ->orWhere('email', 'like', '%'.$search.'%')
+              ->paginate(5);
+         //   ->where('login', 'like', '%'.$search.'%')
+         //   ->orWhere('phone', 'like', '%'.$search.'%')
+         //   ->orWhere('email', 'like', '%'.$search.'%')
+         //   ->get()
+          //  ->paginate(5);
 
        // dump($result);
 

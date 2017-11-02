@@ -77,13 +77,8 @@
                             </tbody>
                     @endforeach
 
-                    <tbody>
-
-
-                    </tbody>
-
                 </table>
-
+               <p>{{ $users->render() }}</p>
             </div>
         </div>
     </div>

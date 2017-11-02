@@ -81,7 +81,7 @@
                     </tbody>
                     @endforeach
                 </table>
-
+                <p>{{ $result->render() }}</p>
             </div>
         </div>
     </div>
