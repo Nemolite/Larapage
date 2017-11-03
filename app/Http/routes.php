@@ -32,7 +32,8 @@ Route::post('/regsoc', ['as'=>'regsoc','uses'=>'UloginController@regsoc']);
 //
 //});
 
-
+Route::get('/test',['uses'=>'Auth\MyAuthController@showLogin']);
+Route::post('/test',['uses'=>'Auth\MyAuthController@@auth']);
 
 
 /*
