@@ -21,7 +21,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins; //
 
     /**
      * Where to redirect users after login / registration.
@@ -29,6 +29,8 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+
+   // protected $username = 'login'; можно сделать чтобы было не email
 
     /**
      * Create a new authentication controller instance.
@@ -46,9 +48,9 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data) // здесь
     {
-        return Validator::make($data, [
+        return Validator::make($data, [  //при добавления поля в форме регистрации, можно добавить валидацию
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
@@ -61,7 +63,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(array $data)  // при добавлени  поля нужно просто прописать его здесь
     {
         return User::create([
             'name' => $data['name'],

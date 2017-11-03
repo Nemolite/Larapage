@@ -15,13 +15,13 @@ class Authenticate
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next, $guard = null)//реализуется логика
     {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
+        if (Auth::guard($guard)->guest()) { // является ли пользователь гостем
+            if ($request->ajax() || $request->wantsJson()) { //
+                return response('Unauthorized.', 401); //если не авторизирован
             } else {
-                return redirect()->guest('/admin');
+                return redirect()->guest('/admin');// если авторизирован
             }
         }
 

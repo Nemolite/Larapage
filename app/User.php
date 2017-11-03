@@ -11,7 +11,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+    protected $fillable = [ // список разрешенных к изменению имен полей
         'login', 'pass', 'phone','email',
     ];
 
@@ -20,7 +20,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
+    protected $hidden = [ //скрытые поля
         'pass',
     ];
 

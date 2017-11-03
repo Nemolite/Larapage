@@ -66,7 +66,7 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',//система моделей фреймворка
+            'driver' => 'eloquent',//система моделей фреймворка eloquent -ORM
             'model' => App\fulluser::class, //модель которая будет использовано
         ],
 
