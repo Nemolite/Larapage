@@ -36,6 +36,10 @@ Route::get('/test',['uses'=>'Auth\MyAuthController@showLogin']);
 Route::post('/test',['uses'=>'Auth\MyAuthController@@auth']);
 
 
+Route::auth(); //Auth
+// code
+
+
 /*
 Route::get('/cont','FirstController@display_user');
 
