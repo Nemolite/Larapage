@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+/*old in the folider "other "*/
 Route::get('/', ['as'=>'login','uses'=>'PageController@index']);
 Route::post('/', ['as'=>'logindata','uses'=>'PageController@authuser']);
 
