@@ -5,3 +5,15 @@ Homestead.yaml
 Homestead.json
 .env
 /other
+.env.example
+.gitattributes
+.phpstorm.meta
+_ide_helper
+composer
+composer.lock
+gulpfile
+package
+phpunit
+server
+
+
